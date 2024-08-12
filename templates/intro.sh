@@ -1,18 +1,10 @@
-#!/bin/bash
-
 yellow="\e[38;2;255;228;54m"
 turquoise="\e[38;2;0;251;255m"
 white="\e[38;2;255;255;255;1m"
 space="\e[38;2;150;150;150m"
 reset_color="\e[0m"
 
-generic="$yellow\
-  __________________________________________________________________________\n\
- |:..                                                          \`\`:::%%%%%%HH|\n\
- |%%%:::::..                  \e[38;2;0;130;0;1mDarth$white \e[38;2;170;0;0;1mTchoukballer$reset_color$yellow                  \`:::::%%%%|\n\
- |HH%%%%%:::::.....___________________________________________________::::::|$space\n\
-\n\
-\n\
+generic="$space
 .    .        .      .             . .     .        .          .          .\n\
          .                 .                    .                .\n\
   . $turquoise Il y a bien longtemps dans une galaxie lointaine, très lointaine...$space   .\n\
@@ -88,4 +80,4 @@ $yellow nery, terrible conflict, and unending hope.$space              .        
                 .                                   .            .$reset_color"
 
 
-echo -e "$generic"
+echo "$generic"
