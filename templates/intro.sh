@@ -4,12 +4,14 @@ white="\e[38;2;255;255;255;1m"
 space="\e[38;2;150;150;150m"
 reset_color="\e[0m"
 
-generic="$space
-.    .        .      .             . .     .        .          .          .\n\
+first_sentence="$space
+⠄    .        ⠄      .             . .     .        .          .          .\n\
          .                 .                    .                .\n\
   . $turquoise Il y a bien longtemps dans une galaxie lointaine, très lointaine...$space   .\n\
      .               .           .               .        .             .\n\
-     .      .            .                 .                                .\n\
+     .      .            .                 .                                .\n"
+
+death_star="
  .      .         .         .   . :::::+::::...      .          .         .\n\
      .         .      .    ..::.:::+++++:::+++++:+::.    .     .\n\
                         .:.  ..:+:..+|||+..::|+|+||++|:.             .     .\n\
@@ -33,7 +35,9 @@ generic="$space
                                                                              .\n\
     .        .                                                           .\n\
     .     .                                                           .      .\n\
-  .     .                                                        .\n\
+  .     .                                                        .\n"
+
+text="
               .  $yellow A terrible civil war burns throughout the$space  .        .     .\n\
                 $yellow galaxy: a rag-tag group of freedom fighters$space   .  .\n\
      .       . $yellow has risen from beneath the dark shadow of the$space            .\n\
@@ -52,13 +56,17 @@ generic="$space
  .$yellow Droids, powerful weapons, great heroes, and terrible villains.  It is a$space\n\
  $yellow galaxy of fantastic worlds,  magical devices, vast fleets, awesome machi-$space  .\n\
 $yellow nery, terrible conflict, and unending hope.$space              .         .\n\
-.        .          .    .    .            .            .                   .\n\
+.        .          .    .    .            .            .                   .\n"
+
+second_sentence="
                .               ..       .       .   .             .\n\
  .      .    $turquoise T h i s   i s   t h e   g a l a x y   o f   . . .$space             .\n\
                      .              .       .                    .      .\n\
 .        .               .       .     .            .\n\
    .           .        .                     .        .            .\n\
-             .               .    .          .              .   .         .\n\
+             .               .    .          .              .   .         .\n"
+
+sw="
               $yellow _________________      ____         __________$space \n\
  .       .   $yellow /                 |    /    \\    $space.$yellow  |          \\ $space\n\
      .      $yellow /    ______   _____| $space.$yellow /      \\      |    ___    |$space     .     .\n\
@@ -79,5 +87,4 @@ $yellow nery, terrible conflict, and unending hope.$space              .        
      .                           .         .               .                 .\n\
                 .                                   .            .$reset_color"
 
-
-echo "$generic"
+echo "$first_sentence$death_star$text$second_sentence$sw"
