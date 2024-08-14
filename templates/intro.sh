@@ -87,4 +87,7 @@ sw="
      .                           .         .               .                 .\n\
                 .                                   .            .$reset_color"
 
-echo "$first_sentence$death_star$text$second_sentence$sw"
+# echo "$first_sentence" #$death_star$text$second_sentence$sw"
+
+EXEC=$(find .. -type f -name "a.out")
+$EXEC "$first_sentence" "." "\e[38;2;170;0;0;5m"
