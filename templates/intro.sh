@@ -4,10 +4,10 @@ white="\e[38;2;255;255;255;1m"
 space="\e[38;2;150;150;150m"
 reset_color="\e[0m"
 
-first_sentence="$space
-⠄    .        ⠄      .             . .     .        .          .          .\n\
+first_sentence="
+.    .        .       	.             . .     .        .          .          .\n\
          .                 .                    .                .\n\
-  . $turquoise Il y a bien longtemps dans une galaxie lointaine, très lointaine...$space   .\n\
+  .  Il y a bien longtemps dans une galaxie lointaine, tres lointaine...   .\n\
      .               .           .               .        .             .\n\
      .      .            .                 .                                .\n"
 
@@ -91,3 +91,4 @@ sw="
 
 EXEC=$(find .. -type f -name "a.out")
 $EXEC "$first_sentence" "TURQUOISE" "." "RED"
+# $EXEC "$death_star" "RED"

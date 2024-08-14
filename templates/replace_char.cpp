@@ -2,6 +2,7 @@
 #include <iostream>
 #include <map>
 #include <exception>
+#include <cctype>
 
 #define RED "\e[38;2;170;0;0m"
 #define TURQUOISE "\e[38;2;0;251;255m"
@@ -41,7 +42,6 @@ Utils init_colours(Utils *utils)
 	
 	for (int i = 0; i < 3; i++)
 		utils->colours.insert(std::pair<std::string, std::string>(triggers[i], colours[i]));
-	std::cout << "main_colour = " << utils->main_colour << std::endl;
 	utils->main_colour = select_colour(utils, utils->main_colour);
 	return (*utils);
 }
@@ -68,6 +68,23 @@ void display_text(Utils *utils)
 	for (unsigned long i = 0; i < utils->text.size(); i++)
 	{
 		int displayed = false;
+		if (utils->text[i] == '\\' && i + 1 < utils->text.size() && utils->text[i + 1] == 'n')
+		{
+			std::cout << std::endl;
+			i++;
+			continue ;
+		}
+		int tmp = i;
+		if (utils->text[tmp] == '.' && tmp > 0 && (isalpha(utils->text[tmp - 1]) || utils->text[tmp] == '.'))
+		{
+			while (utils->text[tmp] == '.')
+				tmp--;
+			if (isalpha(utils->text[tmp - 1]))
+			{
+				std::cout << utils->main_colour << utils->text[i] << "\e[0m";
+				continue ;
+			}
+		}
 		for (std::map<char, std::string>::iterator it = utils->to_replace.begin(); \
 			it != utils->to_replace.end(); it++)
 		{
@@ -93,12 +110,6 @@ int main(int argc, char **argv)
 		utils = init_colours(&utils);
 		utils.text = argv[1];
 		utils.to_replace = fill_map(argc, argv);
-
-		for (std::map<std::string, std::string>::iterator it = utils.colours.begin(); \
-			it != utils.colours.end(); it++)
-			std::cout << it->first << " ";
-		std::cout << "\n\n--------------------------------\n\n";
-
 		display_text(&utils);
 		// print_struct(&utils);
 	}
