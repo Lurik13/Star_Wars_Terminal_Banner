@@ -3,46 +3,54 @@
 #include <map>
 #include <exception>
 
-#define RED "\e[38;2;170;0;0;1m"
-#define RESET "\e[0m\n"
+#define RED "\e[38;2;170;0;0m"
+#define TURQUOISE "\e[38;2;0;251;255m"
+#define RESET "\e[0m"
+#define R_RESET "\e[0m\n"
 
 
 typedef struct Utils
 {
 	std::string text;
 	std::map<char, std::string> to_replace;
+	std::string main_colour;
 	std::map<std::string, std::string> colours;
 } Utils;
 
 void verif_params(int argc, char **argv)
 {
-	if (argc >= 4 && argc % 2 == 0)
+	if (argc >= 3 && argc % 2 == 1)
 	{
-		for (int i = 1; i < argc; i++)
-			if (i % 2 == 0 && std::string(argv[i]).size() != 1)
+		for (int i = 3; i < argc; i++)
+			if (i % 2 == 1 && std::string(argv[i]).size() != 1)
 				throw(std::runtime_error(std::string("\"") + argv[i] + std::string("\" is not a char.")));
 	}
 	else
-		throw(std::runtime_error("Wrong number of params.\n./a.out <text> <char, string> <char, string> ... % 2"));
+		throw(std::runtime_error("Wrong number of params.\n./a.out <text> <main_colour> <char, string> <char, string> ... % 2"));
 }
 
-std::map<std::string, std::string> init_colours(Utils *utils)
+std::string select_colour(Utils *utils, std::string choice)
 {
-	std::string triggers[2] = {"RED", "GREEN"};
-	std::string colours[2] = {RED, "\e[38;2;0;170;0m"};
-	
-	for (int i = 0; i < 2; i++)
-		utils->colours.insert(std::pair<std::string, std::string>(triggers[i], colours[i]));
-	
+	return (utils->colours.find(choice)->second);
+}
 
-	return (utils->colours);
+Utils init_colours(Utils *utils)
+{
+	std::string triggers[3] = {"RED", "GREEN", "TURQUOISE"};
+	std::string colours[3] = {RED, "\e[38;2;0;170;0m", TURQUOISE};
+	
+	for (int i = 0; i < 3; i++)
+		utils->colours.insert(std::pair<std::string, std::string>(triggers[i], colours[i]));
+	std::cout << "main_colour = " << utils->main_colour << std::endl;
+	utils->main_colour = select_colour(utils, utils->main_colour);
+	return (*utils);
 }
 
 std::map<char, std::string> fill_map(int argc, char **argv)
 {
 	std::map<char, std::string> to_replace;
-	for (int i = 2; i != argc - 1; i++)
-		if (i % 2 == 0)
+	for (int i = 3; i != argc - 1; i++)
+		if (i % 2 == 1)
 			to_replace.insert(std::pair<char, std::string>(argv[i][0], argv[i + 1]));
 	return (to_replace);
 }
@@ -53,11 +61,6 @@ void print_struct(Utils *utils)
 	for (std::map<char, std::string>::iterator it = utils->to_replace.begin(); \
 		it != utils->to_replace.end(); it++)
 		std::cout << "             " << it->first << " - " << it->second << std::endl;
-}
-
-std::string select_colour(Utils *utils, std::string choice)
-{
-	return (utils->colours.find(choice)->second);
 }
 
 void display_text(Utils *utils)
@@ -76,7 +79,7 @@ void display_text(Utils *utils)
 			}
 		}
 		if (displayed == false)
-			std::cout << utils->text[i];
+			std::cout << utils->main_colour << utils->text[i] << "\e[0m";
 	}
 }
 
@@ -86,7 +89,8 @@ int main(int argc, char **argv)
 	{
 		verif_params(argc, argv);
 		Utils utils;
-		utils.colours = init_colours(&utils);
+		utils.main_colour = argv[2];
+		utils = init_colours(&utils);
 		utils.text = argv[1];
 		utils.to_replace = fill_map(argc, argv);
 
@@ -100,7 +104,7 @@ int main(int argc, char **argv)
 	}
 	catch (std::runtime_error &e)
 	{
-		std::cout << RED << e.what() <<  RESET;
+		std::cout << RED << e.what() <<  R_RESET;
 	}
 }
 

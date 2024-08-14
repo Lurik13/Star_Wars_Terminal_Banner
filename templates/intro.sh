@@ -90,4 +90,4 @@ sw="
 # echo "$first_sentence" #$death_star$text$second_sentence$sw"
 
 EXEC=$(find .. -type f -name "a.out")
-$EXEC "$first_sentence" "." "RED"
+$EXEC "$first_sentence" "TURQUOISE" "." "RED"
