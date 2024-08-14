@@ -11,7 +11,7 @@ typedef struct Utils
 {
 	std::string text;
 	std::map<char, std::string> to_replace;
-	// std::map<std::string, std::string> colours;
+	std::map<std::string, std::string> colours;
 } Utils;
 
 void verif_params(int argc, char **argv)
@@ -26,12 +26,17 @@ void verif_params(int argc, char **argv)
 		throw(std::runtime_error("Wrong number of params.\n./a.out <text> <char, string> <char, string> ... % 2"));
 }
 
-// std::map<std::string, std::string> init_colours(Utils *utils)
-// {
-// 	std::string triggers[1] = {"RED"};
-// 	std::string colours[1] = {RED};
-// 	utils->colours = {triggers, colours};
-// }
+std::map<std::string, std::string> init_colours(Utils *utils)
+{
+	std::string triggers[2] = {"RED", "GREEN"};
+	std::string colours[2] = {RED, "\e[38;2;0;170;0m"};
+	
+	for (int i = 0; i < 2; i++)
+		utils->colours.insert(std::pair<std::string, std::string>(triggers[i], colours[i]));
+	
+
+	return (utils->colours);
+}
 
 std::map<char, std::string> fill_map(int argc, char **argv)
 {
@@ -50,14 +55,14 @@ void print_struct(Utils *utils)
 		std::cout << "             " << it->first << " - " << it->second << std::endl;
 }
 
-// std::string select_colour(Utils *utils, std::string choice)
-// {
-// 	return (utils->colours.find(choice)->second);
-// }
+std::string select_colour(Utils *utils, std::string choice)
+{
+	return (utils->colours.find(choice)->second);
+}
 
 void display_text(Utils *utils)
 {
-	for (int i = 0; i < utils->text.size(); i++)
+	for (unsigned long i = 0; i < utils->text.size(); i++)
 	{
 		int displayed = false;
 		for (std::map<char, std::string>::iterator it = utils->to_replace.begin(); \
@@ -65,8 +70,7 @@ void display_text(Utils *utils)
 		{
 			if (it->first == utils->text[i])
 			{
-				std::cout << it->first;
-				// std::cout << select_colour(utils, it->second) << it->first << "\e[0m";
+				std::cout << select_colour(utils, it->second) << it->first << "\e[0m";
 				displayed = true;
 				break ;
 			}
@@ -81,13 +85,16 @@ int main(int argc, char **argv)
 	try
 	{
 		verif_params(argc, argv);
-
-		// std::cout << argv[1] << "\n\n\n\n--------------------------------\n\n\n";
-
 		Utils utils;
-		// utils.colours = init_colours(&utils);
+		utils.colours = init_colours(&utils);
 		utils.text = argv[1];
 		utils.to_replace = fill_map(argc, argv);
+
+		for (std::map<std::string, std::string>::iterator it = utils.colours.begin(); \
+			it != utils.colours.end(); it++)
+			std::cout << it->first << " ";
+		std::cout << "\n\n--------------------------------\n\n";
+
 		display_text(&utils);
 		// print_struct(&utils);
 	}
@@ -96,3 +103,5 @@ int main(int argc, char **argv)
 		std::cout << RED << e.what() <<  RESET;
 	}
 }
+
+// segfault with "\e..."
