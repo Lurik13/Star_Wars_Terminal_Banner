@@ -6,8 +6,10 @@
 
 // Colours: https://fr.wikipedia.org/wiki/Couleur_du_Web
 
-#define RED "\e[38;2;170;0;0m"
-#define TURQUOISE "\e[38;2;0;251;255m"
+#define DARKRED "\e[38;2;170;0;0m" // custom colour
+#define DARKGREEN "\e[38;2;0;130;0m" //custom colour
+#define TURQUOISE "\e[38;2;0;251;255m" // custom colour
+#define LIGHTYELLOW "\e[38;2;255;228;54m" // custom colour
 
 // Grays
 #define GAINSBORO "\e[38;2;220;220;220m"
@@ -18,7 +20,7 @@
 #define DIMGRAY "\e[38;2;105;105;105m"
 #define LIGHTCHARCOAL "\e[38;2;85;85;85m" // custom colour
 #define CHARCOAL "\e[38;2;67;67;67m" // custom colour
-#define SHADOW "\e[38;2;43;43;43m" // custom colour
+#define SHADOW "\e[38;2;53;53;53m" // custom colour
 #define LIGHTSLATEGRAY "\e[38;2;119;136;153m"
 #define SLATEGRAY "\e[38;2;112;128;144m"
 #define DARKSLATEGRAY "\e[38;2;47;79;79m"
@@ -57,12 +59,12 @@ std::string select_colour(Utils *utils, std::string choice)
 
 Utils init_colours(Utils *utils)
 {
-	std::string triggers[16] = {"RED", "GREEN", "TURQUOISE", 
+	std::string triggers[17] = {"DARKRED", "DARKGREEN", "TURQUOISE", "LIGHTYELLOW",
 		"GAINSBORO", "LIGHTGREY", "SILVER", "DARKGRAY", "GRAY", "DIMGRAY", "LIGHTCHARCOAL", "CHARCOAL", "SHADOW", "LIGHTSLATEGRAY", "SLATEGRAY", "DARKSLATEGRAY", "BLACK"};
-	std::string colours[16] = {RED, "\e[38;2;0;170;0m", TURQUOISE,
+	std::string colours[17] = {DARKRED, DARKGREEN, TURQUOISE, LIGHTYELLOW,
 		GAINSBORO, LIGHTGREY, SILVER, DARKGRAY, GRAY, DIMGRAY, LIGHTCHARCOAL, CHARCOAL, SHADOW, LIGHTSLATEGRAY, SLATEGRAY, DARKSLATEGRAY, BLACK};
 	
-	for (int i = 0; i < 16; i++)
+	for (int i = 0; i < 17; i++)
 		utils->colours.insert(std::pair<std::string, std::string>(triggers[i], colours[i]));
 	utils->main_colour = select_colour(utils, utils->main_colour);
 	return (*utils);
@@ -138,8 +140,6 @@ int main(int argc, char **argv)
 	}
 	catch (std::runtime_error &e)
 	{
-		std::cout << RED << e.what() <<  R_RESET;
+		std::cout << DARKRED << e.what() <<  R_RESET;
 	}
 }
-
-// segfault with "\e..."

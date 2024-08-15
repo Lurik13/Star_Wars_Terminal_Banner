@@ -38,58 +38,60 @@ death_star="
   .     .                                                        .\n"
 
 text="
-              .  $yellow A terrible civil war burns throughout the$space  .        .     .\n\
-                $yellow galaxy: a rag-tag group of freedom fighters$space   .  .\n\
-     .       . $yellow has risen from beneath the dark shadow of the$space            .\n\
-.        .    $yellow evil monster the Galactic Empire has become.$space                  .\n\
-   .            $yellow Imperial  forces  have  instituted  a reign of$space   .      .\n\
-            $yellow terror,  and every  weapon in its arsenal has  been$space\n\
-          .$yellow turned upon the Rebels  and  their  allies:  tyranny,$space .   .\n\
-   .      $yellow oppression, vast fleets, overwhelming armies, and fear.$space        .  .\n\
-.      . $yellow Fear  keeps  the  individual systems in line,  and is the$space   .\n\
-        $yellow prime motivator of the New Order.$space             .\n\
-    .     $yellow Outnumbered and outgunned,  the Rebellion burns across the$space   .    .\n\
-.     $yellow vast reaches of space and a thousand-thousand worlds, with only$space     .\n\
-    .$yellow their great courage - and the mystical power known as the Force$space -\n\
-    $yellow flaming a fire of hope.$space                                    .\n\
-      $yellow This is a  galaxy  of wondrous aliens,  bizarre monsters,  strange$space   .\n\
- .$yellow Droids, powerful weapons, great heroes, and terrible villains.  It is a$space\n\
- $yellow galaxy of fantastic worlds,  magical devices, vast fleets, awesome machi-$space  .\n\
-$yellow nery, terrible conflict, and unending hope.$space              .         .\n\
+              .   A terrible civil war burns throughout the  .        .     .\n\
+                 galaxy: a rag-tag group of freedom fighters   .  .\n\
+     .       .  has risen from beneath the dark shadow of the            .\n\
+.        .     evil monster the Galactic Empire has become.                  .\n\
+   .             Imperial  forces  have  instituted  a reign of   .      .\n\
+             terror,  and every  weapon in its arsenal has  been\n\
+          . turned upon the Rebels  and  their  allies:  tyranny, .   .\n\
+   .       oppression, vast fleets, overwhelming armies, and fear.        .  .\n\
+.      .  Fear  keeps  the  individual systems in line,  and is the   .\n\
+         prime motivator of the New Order.             .\n\
+    .      Outnumbered and outgunned,  the Rebellion burns across the   .    .\n\
+.      vast reaches of space and a thousand-thousand worlds, with only     .\n\
+    . their great courage - and the mystical power known as the Force -\n\
+     flaming a fire of hope.                                    .\n\
+       This is a  galaxy  of wondrous aliens,  bizarre monsters,  strange   .\n\
+ . Droids, powerful weapons, great heroes, and terrible villains.  It is a\n\
+  galaxy of fantastic worlds,  magical devices, vast fleets, awesome machi-  .\n\
+ nery, terrible conflict, and unending hope.              .         .\n\
 .        .          .    .    .            .            .                   .\n"
 
 second_sentence="
-               .               ..       .       .   .             .\n\
- .      .    $turquoise T h i s   i s   t h e   g a l a x y   o f   . . .$space             .\n\
+               .               .       .       .   .             .\n\
+ .      .        T h i s   i s   t h e   g a l a x y   o f               .\n\
                      .              .       .                    .      .\n\
 .        .               .       .     .            .\n\
    .           .        .                     .        .            .\n\
              .               .    .          .              .   .         .\n"
 
 sw="
-              $yellow _________________      ____         __________$space \n\
- .       .   $yellow /                 |    /    \\    $space.$yellow  |          \\ $space\n\
-     .      $yellow /    ______   _____| $space.$yellow /      \\      |    ___    |$space     .     .\n\
-            $yellow \\    \\    |   |       /   /\\   \\     |   |___>   |$space\n\
-           . $yellow \\    \\   |   |      /   /__\\   \\  $space.$yellow |         _/$space               .\n\
- .    $yellow ________>    |  |   | $space.$yellow   /            \\   |   |\\    \\_______$space    .\n\
-     $yellow |            /   |   |    /    ______    \\  |   | \\           |$space\n\
-     $yellow |___________/    |___|   /____/      \\____\\ |___|  \\__________|$space    .\n\
-  .    $yellow ____    __  $space.$yellow _____   ____      $space.$yellow  __________   $space.$yellow  _________$space\n\
-      $yellow \\    \\  /  \\  /    /  /    \\       |          \\    /         |$space      .\n\
-       $yellow \\    \\/    \\/    /  /      \\      |    ___    |  /    ______|$space  .\n\
-        $yellow \\              /  /   /\\   \\ $space.$yellow   |   |___>   |  \\    \\ $space\n\
-   .     $yellow \\            /  /   /__\\   \\    |         _/$space.$yellow   \\    \\ $space           +\n\
-          $yellow \\    /\\    /  /            \\   |   |\\    \\______>    |$space   .\n\
-           $yellow \\  /  \\  /  /    ______    \\  |   | \\              /$space          .\n\
- .       .  $yellow \\/    \\/  /____/      \\____\\ |___|  \\____________/$space \e[38;2;0;130;0;1mLucas$white \e[38;2;170;0;0;1mRibette$space\n\
+               _________________      ____         __________ \n\
+ .       .    /                 |    /    \\    .  |          \\ \n\
+     .       /    ______   _____| . /      \\      |    ___    |     .     .\n\
+             \\    \\    |   |       /   /\\   \\     |   |___>   |\n\
+           .  \\    \\   |   |      /   /__\\   \\  . |         _/               .\n\
+ .     ________>    |  |   | .   /            \\   |   |\\    \\_______    .\n\
+      |            /   |   |    /    ______    \\  |   | \\           |\n\
+      |___________/    |___|   /____/      \\____\\ |___|  \\__________|    .\n\
+  .     ____    __  . _____   ____      .  __________   .  _________\n\
+       \\    \\  /  \\  /    /  /    \\       |          \\    /         |      .\n\
+        \\    \\/    \\/    /  /      \\      |    ___    |  /    ______|  .\n\
+         \\              /  /   /\\   \\ .   |   |___>   |  \\    \\ \n\
+   .      \\            /  /   /__\\   \\    |         _/.   \\    \\            +\n\
+           \\    /\\    /  /            \\   |   |\\    \\______>    |   .\n\
+            \\  /  \\  /  /    ______    \\  |   | \\              /          .\n\
+ .       .   \\/    \\/  /____/      \\____\\ |___|  \\____________/ Lucas Ribette\n\
                                .                                        .\n\
      .                           .         .               .                 .\n\
-                .                                   .            .$reset_color"
+                .                                   .            .\n"
 
 # echo "$first_sentence$death_star$text$second_sentence$sw"
 
 EXEC=$(find .. -type f -name "a.out")
-$EXEC "$first_sentence" "TURQUOISE" "." "GRAY"
-$EXEC "$death_star" "RED" "." "DARKGRAY" "\`" "DARKGRAY" ":" "SILVER" "+" "GRAY" "%" "GRAY" "|" "DIMGRAY" "O" "LIGHTCHARCOAL" "#" "CHARCOAL" "@" "SHADOW"
-# echo "$text$second_sentence$sw"
+$EXEC "$first_sentence" "TURQUOISE" "." "DARKGRAY"
+$EXEC "$death_star" "DARKGRAY" "." "DARKGRAY" "\`" "DARKGRAY" ":" "SILVER" "+" "GRAY" "%" "GRAY" "|" "DIMGRAY" "O" "LIGHTCHARCOAL" "#" "CHARCOAL" "@" "SHADOW"
+$EXEC "$text" "LIGHTYELLOW" "." "DARKGRAY"
+$EXEC "$second_sentence" "TURQUOISE" "." "DARKGRAY"
+$EXEC "$sw" "LIGHTYELLOW" "." "DARKGRAY" "+" "GAINSBORO" "L" "DARKGREEN" "u" "DARKGREEN" "c" "DARKGREEN" "a" "DARKGREEN" "s" "DARKGREEN" "R" "DARKRED" "i" "DARKRED" "b" "DARKRED" "e" "DARKRED" "t" "DARKRED"
