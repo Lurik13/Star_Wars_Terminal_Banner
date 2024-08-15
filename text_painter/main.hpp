@@ -29,22 +29,28 @@
 #define DARKSLATEGRAY "\e[38;2;47;79;79m"
 #define BLACK "\e[38;2;0;0;0m"
 
-typedef struct Utils
+class Painter
 {
-	std::string							text;
-	std::map<char, std::string>			to_replace;
-	std::string							main_colour;
-	std::map<std::string, std::string>	colours;
-} Utils;
+	public:
+		void display_text();
+		void print_struct();
+		Painter(int argc = 0, char **argv = NULL);
+		~Painter() {};
+	private:
+		std::string							text;
+		std::map<char, std::string>			to_replace;
+		std::string							main_colour;
+		std::map<std::string, std::string>	colours;
 
-// colours.cpp
-std::string select_colour(Utils *utils, std::string choice);
-Utils init_colours(Utils *utils);
+		// display_text.cpp
+		int new_lines(std::string text, unsigned long *i);
+		int paint_sentence_dots(std::string text, unsigned long i, std::string main_colour);
 
-// display_text.cpp
-void display_text(Utils *utils);
+		// main.cpp
+		std::map<char, std::string> fill_map(int argc, char **argv);
 
-// main.cpp
-void verif_params(int argc, char **argv);
-std::map<char, std::string> fill_map(int argc, char **argv);
-void print_struct(Utils *utils);
+		// Painter.cpp
+		std::string select_colour(std::string choice);
+		void verif_params(int argc, char **argv);
+		void init_colours();
+};

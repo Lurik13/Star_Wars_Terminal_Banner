@@ -6,7 +6,7 @@ begin="\
  |%%%:::::..                  Darth "
  
 end="Tchoukballer                  \`:::::%%%%|
- |HH%%%%%:::::.....___________________________________________________::::::|\n\n"
+ |HH%%%%%:::::.....___________________________________________________::::::|\n \n"
 
 FOLDER=$(find ~/ -type f -name "sw_terminal_banner.sh")
 EXEC=$(find ${FOLDER::-22} -type f -name "text_painter")

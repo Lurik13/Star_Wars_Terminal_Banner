@@ -62,8 +62,8 @@ text="\
 
 second_sentence="\
                .               .       .       .   .             .
- .      .        T h i s   i s   t h e   g a l a x y   o f               .
                      .              .       .                    .      .
+ .      .        T h i s   i s   t h e   g a l a x y   o f               .
 .        .               .       .     .            .
    .           .        .                     .        .            .
              .               .    .          .              .   .         .\n"
