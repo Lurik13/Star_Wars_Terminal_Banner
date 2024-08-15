@@ -6,7 +6,7 @@
 #include <exception>
 #include <cctype>
 
-#include "colours/grays.hpp"
+#include "colours/grey.hpp"
 #include "colours/types.hpp"
 
 #define DARKRED "\e[38;2;170;0;0m" // custom colour

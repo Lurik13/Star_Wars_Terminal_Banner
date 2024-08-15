@@ -1,5 +1,13 @@
 #include "main.hpp"
 
+void Painter::print_struct()
+{
+	std::cout << "Text = " << this->text << "\nTo_replace = \n";
+	for (std::map<char, std::string>::iterator it = this->to_replace.begin(); \
+		it != this->to_replace.end(); it++)
+		std::cout << "             " << it->first << " - " << it->second << std::endl;
+}
+
 int Painter::new_lines(std::string text, unsigned long *i)
 {
 	if (text[*i] == '\\' && *i + 1 < text.size() && text[*i + 1] == 'n')
