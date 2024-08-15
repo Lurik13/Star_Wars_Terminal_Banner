@@ -91,7 +91,7 @@ sw="\
 
 
 FOLDER=$(find ~/ -type f -name "sw_terminal_banner.sh")
-EXEC=$(find ${FOLDER::-22} -type f -name "a.out")
+EXEC=$(find ${FOLDER::-22} -type f -name "text_painter")
 
 $EXEC "$first_sentence" "TURQUOISE" "." "DARKGRAY"
 $EXEC "$death_star" "DARKGRAY" "." "DARKGRAY" "\`" "DARKGRAY" ":" "SILVER" "+" "GRAY" "%" "GRAY" "|" "DIMGRAY" "O" "LIGHTCHARCOAL" "#" "CHARCOAL" "@" "SHADOW"
