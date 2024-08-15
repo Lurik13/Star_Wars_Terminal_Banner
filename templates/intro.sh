@@ -87,8 +87,9 @@ sw="
      .                           .         .               .                 .\n\
                 .                                   .            .$reset_color"
 
-# echo "$first_sentence" #$death_star$text$second_sentence$sw"
+# echo "$first_sentence$death_star$text$second_sentence$sw"
 
 EXEC=$(find .. -type f -name "a.out")
-$EXEC "$first_sentence" "TURQUOISE" "." "RED"
-# $EXEC "$death_star" "RED"
+# $EXEC "$first_sentence" "TURQUOISE" "." "t"
+
+$EXEC "$death_star" "RED"

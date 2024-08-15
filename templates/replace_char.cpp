@@ -32,6 +32,8 @@ void verif_params(int argc, char **argv)
 
 std::string select_colour(Utils *utils, std::string choice)
 {
+	if (utils->colours.find(choice) == utils->colours.end())
+		return ("");
 	return (utils->colours.find(choice)->second);
 }
 
@@ -49,7 +51,7 @@ Utils init_colours(Utils *utils)
 std::map<char, std::string> fill_map(int argc, char **argv)
 {
 	std::map<char, std::string> to_replace;
-	for (int i = 3; i != argc - 1; i++)
+	for (int i = 3; i < argc - 1; i++)
 		if (i % 2 == 1)
 			to_replace.insert(std::pair<char, std::string>(argv[i][0], argv[i + 1]));
 	return (to_replace);
