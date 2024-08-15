@@ -5,6 +5,7 @@
 #include <cctype>
 
 // Colours: https://fr.wikipedia.org/wiki/Couleur_du_Web
+// https://htmlcolorcodes.com/fr/tableau-de-couleur/tableau-de-couleur-design-material/
 
 #define DARKRED "\e[38;2;170;0;0m" // custom colour
 #define DARKGREEN "\e[38;2;0;130;0m" //custom colour

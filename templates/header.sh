@@ -1,12 +1,15 @@
 #!/bin/bash
 
-header="\
-  __________________________________________________________________________\n\
- |:..                                                          \`\`:::%%%%%%HH|\n\
- |%%%:::::..                  \e[38;2;0;130;0;1mDarth\e[38;2;255;255;255;1m \e[38;2;170;0;0;1mTchoukballer                  \`:::::%%%%|\n\
+begin="\
+  __________________________________________________________________________
+ |:..                                                          \`\`:::%%%%%%HH|
+ |%%%:::::..                  Darth "
+ 
+end="Tchoukballer                  \`:::::%%%%|
  |HH%%%%%:::::.....___________________________________________________::::::|\n"
 
 FOLDER=$(find ~/ -type f -name "sw_terminal_banner.sh")
 EXEC=$(find ${FOLDER::-22} -type f -name "a.out")
 
-$EXEC "$header" "LIGHTYELLOW"
+$EXEC "$begin" "LIGHTYELLOW" "D" "DARKGREEN" "a" "DARKGREEN" "r" "DARKGREEN" "t" "DARKGREEN" "h" "DARKGREEN"
+$EXEC "$end" "LIGHTYELLOW" "T" "DARKRED" "c" "DARKRED" "h" "DARKRED" "o" "DARKRED" "u" "DARKRED" "k" "DARKRED" "b" "DARKRED" "a" "DARKRED" "l" "DARKRED" "e" "DARKRED" "r" "DARKRED"
