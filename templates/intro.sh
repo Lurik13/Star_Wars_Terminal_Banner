@@ -1,17 +1,19 @@
+#!/bin/bash
+
 yellow="\e[38;2;255;228;54m"
 turquoise="\e[38;2;0;251;255m"
 white="\e[38;2;255;255;255;1m"
 space="\e[38;2;150;150;150m"
 reset_color="\e[0m"
 
-first_sentence="
+first_sentence="\
 .    .        .       	.             . .     .        .          .          .\n\
          .                 .                    .                .\n\
   .  Il y a bien longtemps dans une galaxie lointaine, tres lointaine...   .\n\
      .               .           .               .        .             .\n\
      .      .            .                 .                                .\n"
 
-death_star="
+death_star="\
  .      .         .         .   . :::::+::::...      .          .         .\n\
      .         .      .    ..::.:::+++++:::+++++:+::.    .     .\n\
                         .:.  ..:+:..+|||+..::|+|+||++|:.             .     .\n\
@@ -37,7 +39,7 @@ death_star="
     .     .                                                           .      .\n\
   .     .                                                        .\n"
 
-text="
+text="\
               .   A terrible civil war burns throughout the  .        .     .\n\
                  galaxy: a rag-tag group of freedom fighters   .  .\n\
      .       .  has risen from beneath the dark shadow of the            .\n\
@@ -58,7 +60,7 @@ text="
  nery, terrible conflict, and unending hope.              .         .\n\
 .        .          .    .    .            .            .                   .\n"
 
-second_sentence="
+second_sentence="\
                .               .       .       .   .             .\n\
  .      .        T h i s   i s   t h e   g a l a x y   o f               .\n\
                      .              .       .                    .      .\n\
@@ -66,7 +68,7 @@ second_sentence="
    .           .        .                     .        .            .\n\
              .               .    .          .              .   .         .\n"
 
-sw="
+sw="\
                _________________      ____         __________ \n\
  .       .    /                 |    /    \\    .  |          \\ \n\
      .       /    ______   _____| . /      \\      |    ___    |     .     .\n\
@@ -87,9 +89,10 @@ sw="
      .                           .         .               .                 .\n\
                 .                                   .            .\n"
 
-# echo "$first_sentence$death_star$text$second_sentence$sw"
 
-EXEC=$(find .. -type f -name "a.out")
+FOLDER=$(find ~/ -type f -name "sw_terminal_banner.sh")
+EXEC=$(find ${FOLDER::-22} -type f -name "a.out")
+
 $EXEC "$first_sentence" "TURQUOISE" "." "DARKGRAY"
 $EXEC "$death_star" "DARKGRAY" "." "DARKGRAY" "\`" "DARKGRAY" ":" "SILVER" "+" "GRAY" "%" "GRAY" "|" "DIMGRAY" "O" "LIGHTCHARCOAL" "#" "CHARCOAL" "@" "SHADOW"
 $EXEC "$text" "LIGHTYELLOW" "." "DARKGRAY"

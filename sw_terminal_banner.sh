@@ -1,3 +1,5 @@
+#!/bin/bash
+
 HEADER=$(find ~/ -type f -name "header.sh")
 $HEADER
 
