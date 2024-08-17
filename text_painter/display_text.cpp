@@ -28,7 +28,7 @@ int Painter::paint_sentence_dots(std::string text, unsigned long i, std::string 
 			i--;
 		if (isalpha(text[i]))
 		{
-			std::cout << main_colour << text[i + 1] << "\e[0m";
+			std::cout << main_colour << text[i + 1] << RESET;
 			return (true);
 		}
 	}
@@ -55,13 +55,13 @@ void Painter::display_text()
 			{
 				if (it->first == this->text[i])
 				{
-					std::cout << select_colour(it->second) << it->first << "\e[0m";
+					std::cout << select_colour(it->second) << it->first << RESET;
 					displayed = true;
 					break ;
 				}
 			}
 			if (displayed == false)
-				std::cout << this->main_colour << this->text[i] << "\e[0m";
+				std::cout << this->main_colour << this->text[i] << RESET;
 		}
 	}
 }
