@@ -32,6 +32,7 @@ class Painter
 		int									window_width;
 
 		// display_text.cpp
+		void make_it_responsive();
 		int new_lines(std::string text, unsigned long *i);
 		int paint_sentence_dots(std::string text, unsigned long i, std::string main_colour);
 		std::string select_colour(std::string choice);

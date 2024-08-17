@@ -8,11 +8,20 @@ void Painter::print_struct()
 		std::cout << "             " << it->first << " - " << it->second << std::endl;
 }
 
+void Painter::make_it_responsive()
+{
+	for (int i = 0; i < (this->window_width - MIN_WIDTH) / 2; i++)
+		std::cout /*<< main_colour */<< " ";
+}
+
 int Painter::new_lines(std::string text, unsigned long *i)
 {
+	if (*i == 0)
+		make_it_responsive();
 	if (text[*i] == '\\' && *i + 1 < text.size() && text[*i + 1] == 'n')
 	{
 		std::cout << std::endl;
+		make_it_responsive();
 		*i+= 2;
 		return (-1);
 	}
