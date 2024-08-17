@@ -8,47 +8,6 @@ void Painter::print_struct()
 		std::cout << "             " << it->first << " - " << it->second << std::endl;
 }
 
-void Painter::make_it_responsive(bool end)
-{
-	if (end == false)
-	{
-		while (this->index_in_line < (this->window_width - MIN_WIDTH) / 2)
-		{
-			std::cout << " ";
-			this->index_in_line++;
-		}
-	}
-	else
-	{
-		while (this->index_in_line < this->window_width)
-		{
-			std::cout << " ";
-			this->index_in_line++;
-		}
-		std::cout << std::endl;
-	}
-}
-
-int Painter::new_lines(std::string text, unsigned long *i, int *line_number)
-{
-	if (*i == 0 && this->mode != BEGIN_INSIDE_MODE)
-		make_it_responsive(false);
-	if ((text[*i] == '\\' && *i + 1 < text.size() && text[*i + 1] == 'n')
-		|| text[*i] == '\0')
-	{
-		if (this->mode == BEGIN_INSIDE_MODE && *line_number == 0)
-			std::cout << std::endl;
-		else
-			make_it_responsive(true);
-		this->index_in_line = 0;
-		make_it_responsive(false);
-		*line_number += 1;
-		*i+= 2;
-		return (-1);
-	}
-	return (*i);
-}
-
 int Painter::paint_sentence_dots(std::string text, unsigned long i, std::string main_colour)
 {
 	if (text[i] == '.' && i > 0 && (isalpha(text[i - 1]) || text[i] == '.')

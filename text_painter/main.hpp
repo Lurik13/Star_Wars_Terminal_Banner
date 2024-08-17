@@ -7,6 +7,8 @@
 #include <cctype>
 #include <cstdlib>
 #include <cstring>
+#include <sys/time.h>
+#include <unistd.h> 
 
 #include "colours/grey.hpp"
 #include "colours/types.hpp"
@@ -37,8 +39,11 @@ class Painter
 		int									window_width;
 		int									mode;
 		int									index_in_line;
+		struct timeval						timeval_struct;
 
 		// display_text.cpp
+		unsigned int ft_random();
+		void display_stars(int max_size, bool left);
 		void make_it_responsive(bool end);
 		int new_lines(std::string text, unsigned long *i, int *line_number);
 		int paint_sentence_dots(std::string text, unsigned long i, std::string main_colour);
