@@ -6,14 +6,14 @@ white="\e[38;2;255;255;255;1m"
 space="\e[38;2;150;150;150m"
 reset_color="\e[0m"
 
-first_sentence="\n\
-.    .        .       	.             . .     .        .          .          .\n
+first_sentence="\
+.    .        .         .             . .     .        .          .          .\n
          .                 .                    .                .\n
   .  Il y a bien longtemps dans une galaxie lointaine, tres lointaine...   .\n
      .               .           .               .        .             .\n
      .      .            .                 .                                ."
 
-death_star="\n\
+death_star="\
  .      .         .         .   . :::::+::::...      .          .         .\n
      .         .      .    ..::.:::+++++:::+++++:+::.    .     .\n
                         .:.  ..:+:..+|||+..::|+|+||++|:.             .     .\n
@@ -39,7 +39,7 @@ death_star="\n\
     .     .                                                           .      .\n
   .     .                                                        ."
 
-text="\n\
+text="\
               .   A terrible civil war burns throughout the  .        .     .\n
                  galaxy: a rag-tag group of freedom fighters   .  .\n
      .       .  has risen from beneath the dark shadow of the            .\n
@@ -60,7 +60,7 @@ text="\n\
  nery, terrible conflict, and unending hope.              .         .\n
 .        .          .    .    .            .            .                   ."
 
-second_sentence="\n\
+second_sentence="\
                .               .       .       .   .             .\n
                      .              .       .                    .      .\n
  .      .        T h i s   i s   t h e   g a l a x y   o f               .\n
@@ -68,7 +68,7 @@ second_sentence="\n\
    .           .        .                     .        .            .\n
              .               .    .          .              .   .         ."
 
-sw="\n\
+sw="\
                _________________      ____         __________ \n
  .       .    /                 |    /    \\    .  |          \\ \n
      .       /    ______   _____| . /      \\      |    ___    |     .     .\n
@@ -87,15 +87,15 @@ sw="\n\
  .       .   \\/    \\/  /____/      \\____\\ |___|  \\____________/ Lucas Ribette\n
                                .                                        .\n
      .                           .         .               .                 .\n
-                .                                   .            .\n"
+                .                                   .            ."
 
 
 FOLDER=$(find ~/ -type f -name "sw_terminal_banner.sh")
 EXEC=$(find ${FOLDER::-22} -type f -name "text_painter")
 WIDTH=$(tput cols)
 
-$EXEC "$WIDTH" "$first_sentence" "TURQUOISE" "." "GREY5"
-$EXEC "$WIDTH" "$death_star" "GREY5"
-$EXEC "$WIDTH" "$text" "LIGHTYELLOW" "." "GREY5"
-$EXEC "$WIDTH" "$second_sentence" "TURQUOISE" "." "GREY5"
-$EXEC "$WIDTH" "$sw" "LIGHTYELLOW" "." "GREY5" "+" "1GREY1" "L" "1DARKGREEN" "u" "1DARKGREEN" "c" "1DARKGREEN" "a" "1DARKGREEN" "s" "1DARKGREEN" "R" "1DARKRED" "i" "1DARKRED" "b" "1DARKRED" "e" "1DARKRED" "t" "1DARKRED"
+$EXEC "$WIDTH" "NORMAL" "$first_sentence" "TURQUOISE" "." "GREY5"
+$EXEC "$WIDTH" "NORMAL" "$death_star" "GREY5"
+$EXEC "$WIDTH" "NORMAL" "$text" "LIGHTYELLOW" "." "GREY5"
+$EXEC "$WIDTH" "NORMAL" "$second_sentence" "TURQUOISE" "." "GREY5"
+$EXEC "$WIDTH" "NORMAL" "$sw" "LIGHTYELLOW" "." "GREY5" "+" "1GREY1" "L" "1DARKGREEN" "u" "1DARKGREEN" "c" "1DARKGREEN" "a" "1DARKGREEN" "s" "1DARKGREEN" "R" "1DARKRED" "i" "1DARKRED" "b" "1DARKRED" "e" "1DARKRED" "t" "1DARKRED"

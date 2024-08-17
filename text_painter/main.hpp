@@ -6,11 +6,16 @@
 #include <exception>
 #include <cctype>
 #include <cstdlib>
+#include <cstring>
 
 #include "colours/grey.hpp"
 #include "colours/types.hpp"
 
 #define MIN_WIDTH 78
+#define NORMAL_MODE 13
+#define END_INSIDE_MODE 42
+#define MIDDLE 63
+#define BEGIN_INSIDE_MODE 84
 
 #define DARKRED "\e[38;2;170;0;0m" // custom colour
 #define DARKGREEN "\e[38;2;0;130;0m" //custom colour
@@ -30,10 +35,12 @@ class Painter
 		std::string							main_colour;
 		std::map<std::string, std::string>	colours;
 		int									window_width;
+		int									mode;
+		int									index_in_line;
 
 		// display_text.cpp
-		void make_it_responsive();
-		int new_lines(std::string text, unsigned long *i);
+		void make_it_responsive(bool end);
+		int new_lines(std::string text, unsigned long *i, int *line_number);
 		int paint_sentence_dots(std::string text, unsigned long i, std::string main_colour);
 		std::string select_colour(std::string choice);
 
@@ -42,3 +49,5 @@ class Painter
 		std::map<char, std::string> fill_map(int argc, char **argv);
 		void init_colours();
 };
+
+// fin de chaque texte : \n et plus rien
