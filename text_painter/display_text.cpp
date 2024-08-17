@@ -37,29 +37,33 @@ std::string Painter::select_colour(std::string choice)
 	return (this->colours.find(choice)->second);
 }
 
+void Painter::display_char(char c)
+{
+	int displayed = false;
+
+	for (std::map<char, std::string>::iterator it = this->to_replace.begin(); \
+		it != this->to_replace.end(); it++)
+	{
+		if (it->first == c)
+		{
+			std::cout << select_colour(it->second) << it->first << RESET;
+			displayed = true;
+			break ;
+		}
+	}
+	if (displayed == false)
+		std::cout << this->main_colour << c << RESET;
+}
+
 void Painter::display_text()
 {
 	int line_number = 0;
 	for (unsigned long i = 0; i < this->text.size(); i++)
 	{
 		this->index_in_line++;
-		int displayed = false;
 		if (new_lines(this->text, &i, &line_number) != -1
 			&& paint_sentence_dots(this->text, i, this->main_colour) == false)
-		{
-			for (std::map<char, std::string>::iterator it = this->to_replace.begin(); \
-				it != this->to_replace.end(); it++)
-			{
-				if (it->first == this->text[i])
-				{
-					std::cout << select_colour(it->second) << it->first << RESET;
-					displayed = true;
-					break ;
-				}
-			}
-			if (displayed == false)
-				std::cout << this->main_colour << this->text[i] << RESET;
-		}
+			display_char(this->text[i]);
 	}
 	if (this->mode != END_INSIDE_MODE)
 		std::cout << std::endl;

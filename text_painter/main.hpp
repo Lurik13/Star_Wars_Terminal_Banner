@@ -42,17 +42,20 @@ class Painter
 		struct timeval						timeval_struct;
 
 		// display_text.cpp
-		unsigned int ft_random();
-		void display_stars(int max_size, bool left);
-		void make_it_responsive(bool end);
 		int new_lines(std::string text, unsigned long *i, int *line_number);
 		int paint_sentence_dots(std::string text, unsigned long i, std::string main_colour);
 		std::string select_colour(std::string choice);
+		void display_char(char c);
 
 		// Painter.cpp
 		void verif_params(int argc, char **argv);
 		std::map<char, std::string> fill_map(int argc, char **argv);
 		void init_colours();
+
+		// responsiveness.cpp
+		unsigned int ft_random();
+		void display_stars(int max_size, bool left);
+		void make_it_responsive(bool end);
 };
 
 // fin de chaque texte : \n et plus rien

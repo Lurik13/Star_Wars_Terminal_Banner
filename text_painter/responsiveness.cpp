@@ -16,6 +16,8 @@ void Painter::display_stars(int max_size, bool left)
 	if (left == true)
 		random_limit = 10 < max_size ? 10 : max_size;
 	int random = 2 + (ft_random() % random_limit - 2);
+	if (max_size - this->index_in_line < 4)
+		random = 10;
 	while (this->index_in_line < max_size)
 	{
 		while (this->index_in_line < max_size && random)
@@ -24,8 +26,8 @@ void Painter::display_stars(int max_size, bool left)
 			std::cout << " ";
 			this->index_in_line++;
 		}
-		if (this->index_in_line != max_size)
-			std::cout <<  GREY5 ".";
+		if (this->index_in_line < max_size)
+			display_char('.');
 		this->index_in_line++;
 		random_limit = 30 < max_size ? 30 : max_size;
 		random = ft_random() % random_limit + 212 / this->window_width * 4;
