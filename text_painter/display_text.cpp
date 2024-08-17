@@ -37,6 +37,12 @@ int Painter::paint_sentence_dots(std::string text, unsigned long i, std::string 
 
 std::string Painter::select_colour(std::string choice)
 {
+	if (isdigit(choice[0]))
+	{
+		std::string types[] = {RESET, BOLD, DIM, ITALIC, UNDERLINED, BLINK, OVERLINE, INVERT, HIDDEN, STRIKEOUT};
+		std::cout << types[choice[0] - 48];
+		choice.erase(0, 1);
+	}
 	if (this->colours.find(choice) == this->colours.end())
 		return ("");
 	return (this->colours.find(choice)->second);
