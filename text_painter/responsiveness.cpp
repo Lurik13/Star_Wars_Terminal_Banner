@@ -1,46 +1,51 @@
 #include "main.hpp"
 
-unsigned int Painter::ft_random()
+void Painter::display_big_star()
 {
-	gettimeofday(&this->timeval_struct, NULL);
-	suseconds_t first_usecond = this->timeval_struct.tv_usec;
-	usleep(2);
-	gettimeofday(&this->timeval_struct, NULL);
-	suseconds_t second_usecond = this->timeval_struct.tv_usec;
-	return (((first_usecond + second_usecond) / 2 * 1103515243 + 12345) % 2147483647);
+	std::vector<std::string> colours = {LIGHTYELLOW, WHITE, GREY0, GREY1, GREY2, GREY3, GREY4, GREY5, GREY6, GREY7};
+	size_t random = (int)rand() % (colours.size());
+	size_t i = 0;
+
+	std::vector<std::string>::iterator iter = colours.begin();
+		// std::cout << random;
+	for (; iter != colours.end(); iter++)
+	{
+		// std::cout << iter->first << std::endl;
+		if (i == random)
+		{
+			std::cout << *iter << '+' << RESET;
+			break ;
+		}
+		i++;
+	}
 }
 
-void Painter::display_stars(int max_size, bool left)
+void Painter::display_stars(int max_size)
 {
-	int random_limit = 15 < max_size ? 15 : max_size;
-	if (left == true)
-		random_limit = 10 < max_size ? 10 : max_size;
-	int random = 2 + (ft_random() % random_limit - 2);
-	if (max_size - this->index_in_line < 4)
-		random = 10;
 	while (this->index_in_line < max_size)
 	{
-		while (this->index_in_line < max_size && random)
+		if (rand() <= (long)RAND_MAX * 4 / 100)
 		{
-			random--;
-			std::cout << " ";
-			this->index_in_line++;
+			if (rand() <= (long)RAND_MAX * STARS_PERCENTAGE / 100)
+				display_big_star();
+			else
+				display_char('.');
+			if (++this->index_in_line < max_size)
+				std::cout << " ";
 		}
-		if (this->index_in_line < max_size)
-			display_char('.');
+		else
+			std::cout << " ";
 		this->index_in_line++;
-		random_limit = 30 < max_size ? 30 : max_size;
-		random = ft_random() % random_limit + 212 / this->window_width * 4;
 	}
 }
 
 void Painter::make_it_responsive(bool end)
 {
 	if (end == false)
-		display_stars((this->window_width - MIN_WIDTH) / 2, true);
+		display_stars((this->window_width - MIN_WIDTH) / 2);
 	else
 	{
-		display_stars(this->window_width, false);
+		display_stars(this->window_width);
 		std::cout << std::endl;
 	}
 }
@@ -56,6 +61,7 @@ int Painter::new_lines(std::string text, unsigned long *i, int *line_number)
 			std::cout << std::endl;
 		else
 			make_it_responsive(true);
+		usleep(50000);
 		this->index_in_line = 0;
 		make_it_responsive(false);
 		*line_number += 1;

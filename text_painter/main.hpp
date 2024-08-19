@@ -9,6 +9,7 @@
 #include <cstring>
 #include <sys/time.h>
 #include <unistd.h> 
+#include <vector>
 
 #include "colours/grey.hpp"
 #include "colours/types.hpp"
@@ -18,6 +19,7 @@
 #define END_INSIDE_MODE 42
 #define MIDDLE 63
 #define BEGIN_INSIDE_MODE 84
+#define STARS_PERCENTAGE 10
 
 #define DARKRED "\e[38;2;170;0;0m" // custom colour
 #define DARKGREEN "\e[38;2;0;130;0m" //custom colour
@@ -53,8 +55,8 @@ class Painter
 		void init_colours();
 
 		// responsiveness.cpp
-		unsigned int ft_random();
-		void display_stars(int max_size, bool left);
+		void display_big_star();
+		void display_stars(int max_size);
 		void make_it_responsive(bool end);
 };
 
