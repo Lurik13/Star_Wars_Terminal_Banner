@@ -7,10 +7,8 @@ void Painter::display_big_star()
 	size_t i = 0;
 
 	std::vector<std::string>::iterator iter = colours.begin();
-		// std::cout << random;
 	for (; iter != colours.end(); iter++)
 	{
-		// std::cout << iter->first << std::endl;
 		if (i == random)
 		{
 			std::cout << *iter << '+' << RESET;

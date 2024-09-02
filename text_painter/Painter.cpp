@@ -55,5 +55,3 @@ void Painter::init_colours()
 		this->colours.insert(std::pair<std::string, std::string>(triggers[i], colours[i]));
 	this->main_colour = select_colour(this->main_colour);
 }
-
-// ligne 19: triggers.size()

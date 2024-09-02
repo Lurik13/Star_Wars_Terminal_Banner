@@ -59,5 +59,3 @@ class Painter
 		void display_stars(int max_size);
 		void make_it_responsive(bool end);
 };
-
-// fin de chaque texte : \n et plus rien
